@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
 const express = require('express');
+const mongoose = require('mongoose');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -7,14 +7,12 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
-
 app.use(require('./routes'));
 
-//tells mongoose which database we want to connect to.
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/pizza-hunt', {
-    useFindAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 // Use this to log mongo queries being executed!
