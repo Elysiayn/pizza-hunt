@@ -16,6 +16,8 @@ router
   .delete(removeComment);
 
 // /api/comments/<pizzaId>/<commentId>/<replyId>
-router.route('/:pizzaId/:commentId/:replyId').delete(removeReply);
+router
+.route('/:pizzaId/:commentId/:replyId')
+.delete(removeReply);
 
 module.exports = router;
